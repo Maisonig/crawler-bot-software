@@ -20,8 +20,8 @@ from qt_material import apply_stylesheet
 
 QT_DEBUG_PLUGINS = 1
 cmd_str = 'ros2 node list'
-MAIN_WINDOW_WIDTH = 2560
-MAIN_WINDOW_HEIGHT = 1440
+MAIN_WINDOW_WIDTH = 1920
+MAIN_WINDOW_HEIGHT = 1080
 
 
 class MainWindow(QMainWindow):
