@@ -14,8 +14,8 @@ class RealsenseNode(Node):
     def __init__(self, node_name: str):
         super().__init__(node_name)
 
-        self.declare_parameter('image_width', 480)
-        self.declare_parameter('image_height', 270)
+        self.declare_parameter('image_width', 640)
+        self.declare_parameter('image_height', 480)
         self.declare_parameter('print_fps', False)
         self.declare_parameter('frequency', 25)
 
@@ -24,8 +24,8 @@ class RealsenseNode(Node):
         self.printFPS = self.get_parameter('print_fps').get_parameter_value().bool_value
         self.timerPeriod = 1 / self.get_parameter('frequency').get_parameter_value().integer_value
 
-        self.colorPublisher = self.create_publisher(CompressedImage, f'/{node_name}/color_image', 10)
-        self.depthPublisher = self.create_publisher(CompressedImage, f'/{node_name}/depth_image', 10)
+        self.colorPublisher = self.create_publisher(CompressedImage, f'/realsense/color_image', 10)
+        self.depthPublisher = self.create_publisher(CompressedImage, f'/realsense/depth_image', 10)
         self.cameraTimer = self.create_timer(self.timerPeriod, self.camera_callback)
         self.reconnectTimer = self.create_timer(3, self.reconnect_callback)
 
